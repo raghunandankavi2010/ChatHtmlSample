@@ -142,6 +142,70 @@ class FakeChatRepository : ChatRepository {
             senderName = "Me",
             isMine = true,
             timestamp = "10:09 AM"
+        ),
+
+        // ── Image (no caption) ───────────────────────────────────────────────
+        ChatMessage(
+            id = "11",
+            content = MessageContent.Image(
+                url = "https://picsum.photos/seed/office/400/220"
+            ),
+            senderName = "Alice",
+            isMine = false,
+            timestamp = "10:10 AM"
+        ),
+
+        ChatMessage(
+            id = "12",
+            content = MessageContent.Html("Here's a photo from the team outing!"),
+            senderName = "Alice",
+            isMine = false,
+            timestamp = "10:10 AM"
+        ),
+
+        // ── Image (with caption) ─────────────────────────────────────────────
+        ChatMessage(
+            id = "13",
+            content = MessageContent.Image(
+                url = "https://picsum.photos/seed/chart/400/220",
+                caption = "Q1 growth chart — numbers look good!"
+            ),
+            senderName = "Alice",
+            isMine = false,
+            timestamp = "10:11 AM"
+        ),
+
+        ChatMessage(
+            id = "14",
+            content = MessageContent.Html("Can you send the voice note from the last meeting?"),
+            senderName = "Me",
+            isMine = true,
+            timestamp = "10:12 AM"
+        ),
+
+        // ── Audio ────────────────────────────────────────────────────────────
+        ChatMessage(
+            id = "15",
+            content = MessageContent.Audio(
+                url = "https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__VolQres.ogg",
+                title = "Meeting summary — March 8",
+                durationLabel = "1:04"
+            ),
+            senderName = "Alice",
+            isMine = false,
+            timestamp = "10:13 AM"
+        ),
+
+        ChatMessage(
+            id = "16",
+            content = MessageContent.Audio(
+                url = "https://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg",
+                title = "Voice note",
+                durationLabel = "0:22"
+            ),
+            senderName = "Me",
+            isMine = true,
+            timestamp = "10:14 AM"
         )
     )
 }

@@ -62,9 +62,13 @@ fun ChatMessageItem(message: ChatMessage) {
                 bottomEnd = 16.dp
             ),
             color = bubbleColor,
-            // Table bubbles can be wider than text bubbles
             modifier = Modifier.widthIn(
-                max = if (message.content is MessageContent.Table) 360.dp else 300.dp
+                max = when (message.content) {
+                    is MessageContent.Table -> 360.dp
+                    is MessageContent.Image -> 280.dp
+                    is MessageContent.Audio -> 300.dp
+                    else -> 300.dp
+                }
             )
         ) {
             Column(
@@ -85,6 +89,10 @@ fun ChatMessageItem(message: ChatMessage) {
                             Toast.makeText(context, cellText, Toast.LENGTH_SHORT).show()
                         }
                     )
+
+                    is MessageContent.Image -> ImageMessageContent(image = content)
+
+                    is MessageContent.Audio -> AudioMessageContent(audio = content)
                 }
 
                 Text(
