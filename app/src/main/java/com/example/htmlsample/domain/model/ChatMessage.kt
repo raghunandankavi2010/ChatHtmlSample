@@ -5,5 +5,7 @@ data class ChatMessage(
     val content: MessageContent,
     val senderName: String,
     val isMine: Boolean,
-    val timestamp: String
+    val timestamp: String,
+    /** Unix millis — used for auto-deletion. Default is now so in-memory messages survive. */
+    val createdAt: Long = System.currentTimeMillis()
 )
